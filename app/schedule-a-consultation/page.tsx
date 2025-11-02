@@ -41,7 +41,7 @@ export default function ScheduleConsultation() {
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="grid md:grid-cols-2 gap-12">
           {/* Contact Info */}
-          <div>
+          <div className="order-2 md:order-1">
             <h2 className="text-3xl font-bold mb-6">Get in Touch</h2>
             <p className="text-lg text-gray-700 mb-8">
               With over 60 years of experience building custom pools in Riverside and the Inland Empire,
@@ -237,22 +237,29 @@ export default function ScheduleConsultation() {
           </div>
 
           {/* Contact Form */}
-          <div>
-            <div className="bg-white rounded-lg shadow-lg p-2 overflow-hidden" style={{ height: '1912px' }}>
+          <div className="order-1 md:order-2">
+            <div className="bg-white rounded-lg shadow-lg p-2 relative" style={{
+              minHeight: '1912px',
+              overflow: 'hidden'
+            }}>
               <div style={{
                 transform: 'scale(0.85)',
                 transformOrigin: 'top left',
                 width: '118%',
-                height: '2250px'
+                height: '2250px',
+                position: 'relative'
               }}>
                 <iframe
                   width="100%"
                   height="100%"
-                  frameBorder="0"
                   src="https://app.smartsheet.com/b/form/4efa88fed00b48819068da20bdab6b9a"
                   title="Schedule a Consultation Form"
-                  style={{ overflow: 'hidden' }}
-                  scrolling="no"
+                  style={{
+                    border: 'none',
+                    display: 'block',
+                    overflow: 'hidden'
+                  }}
+                  loading="eager"
                 />
               </div>
             </div>
