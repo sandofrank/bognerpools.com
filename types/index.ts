@@ -30,23 +30,6 @@ export interface FeaturedProject {
   description?: string;
 }
 
-export interface BlogPost {
-  title: string;
-  slug: string;
-  excerpt: string;
-  date: string;
-  category: string;
-  image?: string;
-}
-
-export interface Resource {
-  title: string;
-  slug: string;
-  excerpt: string;
-  icon?: string;
-  category: string;
-}
-
 export interface ServiceArea {
   city: string;
   county: string;
@@ -88,57 +71,4 @@ export interface LocalBusinessSchema {
     ratingValue: string;
     reviewCount: string;
   };
-}
-
-export interface ReviewSchema {
-  '@context': string;
-  '@type': string;
-  itemReviewed: {
-    '@type': string;
-    name: string;
-  };
-  reviewRating: {
-    '@type': string;
-    ratingValue: string;
-    bestRating: string;
-  };
-  author: {
-    '@type': string;
-    name: string;
-  };
-  reviewBody: string;
-  datePublished?: string;
-}
-
-export interface ArticleSchema {
-  '@context': string;
-  '@type': string;
-  headline: string;
-  description: string;
-  image?: string;
-  author: {
-    '@type': string;
-    name: string;
-  };
-  publisher: {
-    '@type': string;
-    name: string;
-    logo: {
-      '@type': string;
-      url: string;
-    };
-  };
-  datePublished: string;
-  dateModified: string;
-}
-
-export interface BreadcrumbSchema {
-  '@context': string;
-  '@type': string;
-  itemListElement: Array<{
-    '@type': string;
-    position: number;
-    name: string;
-    item?: string;
-  }>;
 }

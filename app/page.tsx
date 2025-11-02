@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { Metadata } from 'next';
 
 // Note: metadata export doesn't work in 'use client' components
 // Metadata is handled by root layout.tsx for this page
