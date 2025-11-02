@@ -221,6 +221,11 @@ export default function Footer() {
         <div className="border-t border-gray-700 mt-8 pt-6 text-center text-gray-400">
           <p>&copy; {new Date().getFullYear()} Paul Bogner Pools Inc. All rights reserved.</p>
           <p className="mt-2 text-sm">Building custom swimming pools since 1959</p>
+          <p className="mt-3 text-xs">
+            <Link href="/privacy-policy" className="text-gray-400 hover:text-blue-400 underline">
+              Privacy Policy
+            </Link>
+          </p>
         </div>
       </div>
     </footer>
