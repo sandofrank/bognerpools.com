@@ -51,19 +51,12 @@ bognerpools.com/
 │   ├── page.tsx           # Homepage
 │   ├── sitemap.ts         # Sitemap for SEO
 │   ├── robots.ts          # Robots.txt configuration
+│   ├── globals.css        # Global styles
 │   ├── gallery/           # Pool gallery
-│   ├── blog/              # Blog listing
 │   ├── financing/         # Financing information
-│   ├── go-green/          # Energy efficiency
-│   ├── pool-shopping-tips/ # Tips for buyers
-│   ├── products/          # Pool products
-│   ├── resources/         # Educational guides and resources
-│   ├── testimonials/      # Customer testimonials
 │   ├── map-to-us/         # Location & directions
-│   ├── help/              # Technical support
 │   ├── schedule-a-consultation/ # Contact form
-│   ├── privacy-policy/    # Privacy policy
-│   └── globals.css        # Global styles
+│   └── privacy-policy/    # Privacy policy
 ├── components/            # Reusable components
 │   ├── Header.tsx        # Top announcement bar
 │   ├── Navigation.tsx    # Main navigation
