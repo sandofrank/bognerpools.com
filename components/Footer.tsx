@@ -218,18 +218,30 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-700 mt-8 pt-6 text-center text-gray-400">
-          <p>&copy; {new Date().getFullYear()} Paul Bogner Pools Inc. All rights reserved.</p>
-          <p className="mt-2 text-sm">Building custom swimming pools since 1959</p>
-          <p className="mt-3 text-xs">
-            <a href="mailto:construction@bognerpools.com" className="text-gray-400 hover:text-blue-400 underline">
-              Pool Owner Support
+        {/* Pool Owner Support - Prominent Section */}
+        <div className="border-t border-gray-700 mt-8 pt-6">
+          <div className="max-w-md mx-auto mb-6">
+            <a
+              href="mailto:construction@bognerpools.com"
+              className="flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-6 py-3 rounded-lg font-semibold transition-all shadow-lg hover:shadow-xl"
+            >
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
+              </svg>
+              <span>Pool Owner Support</span>
             </a>
-            {' · '}
-            <Link href="/privacy-policy" className="text-gray-400 hover:text-blue-400 underline">
-              Privacy Policy
-            </Link>
-          </p>
+            <p className="text-gray-400 text-xs text-center mt-2">Questions about your pool? Email us directly</p>
+          </div>
+
+          <div className="text-center text-gray-400">
+            <p>&copy; {new Date().getFullYear()} Paul Bogner Pools Inc. All rights reserved.</p>
+            <p className="mt-2 text-sm">Building custom swimming pools since 1959</p>
+            <p className="mt-3 text-xs">
+              <Link href="/privacy-policy" className="text-gray-400 hover:text-blue-400 underline">
+                Privacy Policy
+              </Link>
+            </p>
+          </div>
         </div>
       </div>
     </footer>
