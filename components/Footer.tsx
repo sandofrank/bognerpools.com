@@ -222,6 +222,10 @@ export default function Footer() {
           <p>&copy; {new Date().getFullYear()} Paul Bogner Pools Inc. All rights reserved.</p>
           <p className="mt-2 text-sm">Building custom swimming pools since 1959</p>
           <p className="mt-3 text-xs">
+            <a href="mailto:construction@bognerpools.com" className="text-gray-400 hover:text-blue-400 underline">
+              Pool Owner Support
+            </a>
+            {' · '}
             <Link href="/privacy-policy" className="text-gray-400 hover:text-blue-400 underline">
               Privacy Policy
             </Link>
