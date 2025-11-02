@@ -3,59 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
-
-const testimonials = [
-  {
-    name: "Brian",
-    location: "Riverside",
-    quote: "Through the entire process, bidding, design, contract signing, construction, payment, and service, Bogner has been responsive, professional, honest, and accountable. Thank You.",
-  },
-  {
-    name: "Donna",
-    location: "Riverside",
-    quote: "What I appreciated the most from Bogner Pools is that you simply did what you said you'd do, when you said you'd do it.",
-  },
-  {
-    name: "Branden",
-    location: "Yucaipa",
-    quote: "Everything worked out well. I always knew what was going on and you were always asking for my input to ensure we got exactly what we wanted. This was a great experience.",
-  },
-  {
-    name: "Bill",
-    location: "Riverside",
-    quote: "It does not get any better! Thank you so much for making our dream come true.",
-  },
-  {
-    name: "Jackie",
-    location: "Riverside",
-    quote: "I must say, we have never had such excellent service. You're the best!",
-  },
-  {
-    name: "Sandy",
-    location: "Riverside",
-    quote: "The dedication from the Bogner family is second to none. I never had one ounce of worry. Everything is perfect!",
-  },
-  {
-    name: "Darrel and Marie",
-    location: "Redlands",
-    quote: "Professional service from start to finish. Our pool exceeded our expectations and the whole process was smooth.",
-  },
-  {
-    name: "Florence",
-    location: "San Bernardino",
-    quote: "Excellent workmanship and attention to detail. Bogner Pools delivered exactly what they promised.",
-  },
-  {
-    name: "Jim",
-    location: "Moreno Valley",
-    quote: "Quality construction and fair pricing. We couldn't be happier with our new pool!",
-  },
-  {
-    name: "Linda",
-    location: "Riverside",
-    quote: "From consultation to completion, the Bogner team was professional and courteous. Our backyard is now an oasis!",
-  },
-];
+import { testimonials } from '@/data/testimonials';
 
 export default function Footer() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
@@ -85,7 +33,7 @@ export default function Footer() {
               &quot;{testimonials[currentTestimonial].quote}&quot;
             </p>
             <p className="text-xs text-gray-600">
-              — {testimonials[currentTestimonial].name}, {testimonials[currentTestimonial].location}
+              — {testimonials[currentTestimonial].author}, {testimonials[currentTestimonial].location}
             </p>
             {/* Dots indicator */}
             <div className="flex justify-center gap-1.5 mt-3">
