@@ -104,12 +104,12 @@ export default function Footer() {
           {/* Social Media & Service Area */}
           <div className="bg-gray-700/30 rounded-lg p-6 border border-gray-700">
             <h3 className="text-base font-bold mb-3">Follow Us</h3>
-            <div className="flex flex-wrap justify-center md:justify-start gap-2 sm:gap-3 mb-4">
+            <div className="flex flex-wrap justify-center md:justify-start gap-3 mb-4">
               <a
                 href="https://www.facebook.com/BognerPools/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-blue-600 hover:bg-blue-700 p-2.5 sm:p-3 rounded-full transition-colors flex-shrink-0"
+                className="bg-blue-600 hover:bg-blue-700 p-3 rounded-full transition-colors flex-shrink-0"
                 aria-label="Facebook"
               >
                 <svg className="w-5 h-5 fill-current" viewBox="960 645 50 52" xmlns="http://www.w3.org/2000/svg">
@@ -120,7 +120,7 @@ export default function Footer() {
                 href="https://www.instagram.com/bognerpools/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-gradient-to-br from-purple-600 via-pink-600 to-orange-500 hover:from-purple-700 hover:via-pink-700 hover:to-orange-600 p-2.5 sm:p-3 rounded-full transition-colors flex-shrink-0"
+                className="bg-gradient-to-br from-purple-600 via-pink-600 to-orange-500 hover:from-purple-700 hover:via-pink-700 hover:to-orange-600 p-3 rounded-full transition-colors flex-shrink-0"
                 aria-label="Instagram"
               >
                 <svg className="w-5 h-5 fill-current" viewBox="645 750 55 55" xmlns="http://www.w3.org/2000/svg">
@@ -133,7 +133,7 @@ export default function Footer() {
                 href="https://www.yelp.com/biz/bogner-pools-riverside-2"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-red-600 hover:bg-red-700 p-2.5 sm:p-3 rounded-full transition-colors flex items-center justify-center flex-shrink-0"
+                className="bg-red-600 hover:bg-red-700 p-3 rounded-full transition-colors flex items-center justify-center flex-shrink-0"
                 aria-label="Yelp"
               >
                 <svg className="w-5 h-5 fill-current" viewBox="965 855 45 55" xmlns="http://www.w3.org/2000/svg">
@@ -148,7 +148,7 @@ export default function Footer() {
                 href="https://share.google/jLUF03EfXNBaNPk5w"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white hover:bg-gray-100 p-2.5 sm:p-3 rounded-full transition-colors flex items-center justify-center flex-shrink-0"
+                className="bg-white hover:bg-gray-100 p-3 rounded-full transition-colors flex items-center justify-center flex-shrink-0"
                 aria-label="Google Reviews"
               >
                 <svg className="w-5 h-5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
