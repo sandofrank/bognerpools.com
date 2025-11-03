@@ -103,11 +103,11 @@ export default function PageHeader({ title, description, backLink, variant = 'bl
 
       {/* Floating water droplets */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-[1]">
-        <div className="absolute top-20 left-[10%] w-2 h-2 bg-white/30 rounded-full animate-float"></div>
-        <div className="absolute top-32 left-[25%] w-3 h-3 bg-white/20 rounded-full animate-float-delay-1"></div>
-        <div className="absolute top-16 right-[15%] w-2 h-2 bg-white/25 rounded-full animate-float-delay-2"></div>
-        <div className="absolute top-28 right-[30%] w-2.5 h-2.5 bg-white/20 rounded-full animate-float-delay-3"></div>
-        <div className="absolute top-24 left-[60%] w-2 h-2 bg-white/30 rounded-full animate-float"></div>
+        <div className="absolute top-20 left-[10%] w-2 h-2 bg-blue-400/40 rounded-full animate-float"></div>
+        <div className="absolute top-32 left-[25%] w-3 h-3 bg-blue-500/30 rounded-full animate-float-delay-1"></div>
+        <div className="absolute top-16 right-[15%] w-2 h-2 bg-blue-400/35 rounded-full animate-float-delay-2"></div>
+        <div className="absolute top-28 right-[30%] w-2.5 h-2.5 bg-blue-500/30 rounded-full animate-float-delay-3"></div>
+        <div className="absolute top-24 left-[60%] w-2 h-2 bg-blue-400/40 rounded-full animate-float"></div>
       </div>
 
       {/* Content */}
