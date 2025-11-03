@@ -3,7 +3,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { BUSINESS_INFO, SEO_DEFAULTS } from "@/lib/constants";
+import { BUSINESS_INFO, SEO_DEFAULTS, SERVICE_AREAS } from "@/lib/constants";
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -22,8 +22,6 @@ export const metadata: Metadata = {
   keywords: [
     "pool builder",
     "swimming pools",
-    "Riverside",
-    "Inland Empire",
     "pool contractor",
     "pool construction",
     "custom pools",
@@ -31,6 +29,20 @@ export const metadata: Metadata = {
     "pool remodeling",
     "spa builder",
     "Southern California pools",
+    "Riverside pool builder",
+    "Inland Empire pool builder",
+    "Corona pool builder",
+    "Moreno Valley pools",
+    "Murrieta pool contractor",
+    "Temecula pool construction",
+    "Norco swimming pools",
+    "Eastvale pool builder",
+    "Rancho Cucamonga pools",
+    "Fontana pool contractor",
+    "San Bernardino pool builder",
+    "Riverside County pools",
+    "pool builder near me",
+    "local pool contractor",
   ],
   authors: [{ name: 'Bogner Pools' }],
   creator: 'Bogner Pools',
@@ -116,12 +128,13 @@ const localBusinessSchema = {
   areaServed: [
     {
       '@type': 'City',
-      name: 'Riverside',
-    },
-    {
-      '@type': 'City',
       name: 'Inland Empire',
+      '@id': 'https://en.wikipedia.org/wiki/Inland_Empire',
     },
+    ...SERVICE_AREAS.map(city => ({
+      '@type': 'City',
+      name: city,
+    })),
   ],
   sameAs: [
     BUSINESS_INFO.social.facebook,
