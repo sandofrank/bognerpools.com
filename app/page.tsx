@@ -14,7 +14,7 @@ export default function Home() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="https://images.squarespace-cdn.com/content/v1/547a42b2e4b0680f8d699c66/1417569483653-NW9PSU94CW2CPDB76NJE/Casas-30_2.jpg"
+            src="/images/hero/casas-30_2.jpg"
             alt="Beautiful custom swimming pool"
             fill
             className="object-cover"

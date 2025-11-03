@@ -85,7 +85,7 @@ const localBusinessSchema = {
   name: BUSINESS_INFO.name,
   legalName: BUSINESS_INFO.legalName,
   url: BUSINESS_INFO.urls.website,
-  logo: 'https://images.squarespace-cdn.com/content/v1/547a42b2e4b0680f8d699c66/1417717942376-MCD17NTYX6ZBJIPC2BN0/logo.png',
+  logo: '/images/gallery/logo.png',
   image: SEO_DEFAULTS.ogImage,
   description: SEO_DEFAULTS.description,
   telephone: BUSINESS_INFO.phone,

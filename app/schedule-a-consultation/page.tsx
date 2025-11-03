@@ -35,7 +35,7 @@ export default function ScheduleConsultation() {
         title="Schedule a Free In-Home Consultation"
         description="Get started with a no-obligation visit to your property. We'll assess your space, discuss your vision, and provide a detailed itemized bid."
         variant="blue"
-        backgroundImage="https://images.squarespace-cdn.com/content/v1/547a42b2e4b0680f8d699c66/1650566782628-XBE4KO8B3SR65LSR8ZJM/Image-102.jpg"
+        backgroundImage="/images/projects/image-102.jpg"
       />
 
       <div className="container mx-auto px-4 max-w-6xl">
