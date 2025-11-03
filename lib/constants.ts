@@ -87,7 +87,7 @@ export const SERVICE_AREAS = [
 export const SEO_DEFAULTS = {
   title: 'Bogner Pools | Custom Pool Builder Since 1959 | Riverside & Inland Empire',
   description: 'Family-owned pool builder serving Riverside and the Inland Empire since 1959. Quality custom swimming pools, spas, and remodeling at affordable prices. Licensed & Insured (Lic# C53 275843).',
-  ogImage: '/images/hero/hero.jpg',
+  ogImage: 'https://www.bognerpools.com/images/hero/hero.jpg',
   twitterCard: 'summary_large_image' as const,
 } as const;
 

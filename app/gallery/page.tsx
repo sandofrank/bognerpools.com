@@ -307,13 +307,14 @@ export default function Gallery() {
       }
     );
 
-    if (instagramSectionRef.current) {
-      observer.observe(instagramSectionRef.current);
+    const currentRef = instagramSectionRef.current;
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (instagramSectionRef.current) {
-        observer.unobserve(instagramSectionRef.current);
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
   }, [videosLoaded]);
