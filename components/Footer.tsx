@@ -56,7 +56,7 @@ export default function Footer() {
         {/* Logo */}
         <div className="mb-8 text-center">
           <Image
-            src="https://images.squarespace-cdn.com/content/v1/547a42b2e4b0680f8d699c66/1417717942376-MCD17NTYX6ZBJIPC2BN0/logo.png"
+            src="/images/logo.png"
             alt="Bogner Pools"
             width={200}
             height={62}
