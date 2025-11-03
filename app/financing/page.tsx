@@ -12,7 +12,7 @@ export default function Financing() {
         title="Pool Financing"
         description="Owning a swimming pool is easier and more affordable than ever"
         variant="teal"
-        backgroundImage="/images/financing/blasneck-13_2.jpg"
+        backgroundImage="/images/financing/blasneck.jpg"
       />
 
       {/* Main Content */}

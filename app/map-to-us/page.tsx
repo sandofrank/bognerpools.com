@@ -32,7 +32,7 @@ export default function MapToUs() {
         title="Get Started With Your Pool Project"
         description="Step 1: Schedule your free in-home consultation for assessment and bid. Step 2: Visit our showroom to finalize material selections with our on-site displays."
         variant="cyan"
-        backgroundImage="/images/gallery/bellmeyer-1_2.jpg"
+        backgroundImage="/images/gallery/bellmeyer.jpg"
       />
 
       <div className="container mx-auto px-4 max-w-6xl">

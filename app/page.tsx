@@ -14,7 +14,7 @@ export default function Home() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/hero/casas-30_2.jpg"
+            src="/images/hero/hero.jpg"
             alt="Beautiful custom swimming pool"
             fill
             className="object-cover"
