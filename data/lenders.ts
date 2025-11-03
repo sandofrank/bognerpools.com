@@ -3,7 +3,7 @@ import { Lender } from '@/types';
 export const lenders: Lender[] = [
   {
     name: "Lyon Financial",
-    logo: "https://www.lyonfinancial.net/wp-content/uploads/2018/12/logo.png",
+    logo: "/images/lenders/lyon.png",
     website: "https://www.lyonfinancial.net",
     description: "Pool financing specialists with flexible terms",
     features: [],
@@ -11,7 +11,7 @@ export const lenders: Lender[] = [
   },
   {
     name: "Lightstream",
-    logo: "https://www.lightstream.com/getmedia/f8c762db-e223-441e-91ce-d9e957c24d73/LightStream-by-Truist-logo.png.aspx",
+    logo: "/images/lenders/lightstream.png",
     website: "https://www.lightstream.com",
     description: "Unsecured pool loans with competitive rates",
     features: [],
@@ -19,7 +19,7 @@ export const lenders: Lender[] = [
   },
   {
     name: "HFS Financial",
-    logo: "https://www.hfsfinancial.net/wp-content/uploads/2024/08/hfs-logo-new.webp",
+    logo: "/images/lenders/hfs.webp",
     website: "https://www.hfsfinancial.net",
     description: "Home improvement and pool financing solutions",
     features: [],
@@ -27,7 +27,7 @@ export const lenders: Lender[] = [
   },
   {
     name: "Lending Tree",
-    logo: "https://www.lendingtree.com/content/themes/lt-wp-www-theme/assets/images/LT_Logo_Dark_Blue_Background.png",
+    logo: "/images/lenders/lendingtree.png",
     website: "https://www.lendingtree.com",
     description: "Compare multiple lenders for the best rates",
     features: [],
@@ -35,7 +35,7 @@ export const lenders: Lender[] = [
   },
   {
     name: "Viking Capital",
-    logo: "https://poolloan.net/wp-content/uploads/2020/10/Viking-Logo-Horizontal.png",
+    logo: "/images/lenders/viking.png",
     website: "https://poolloan.net",
     description: "Specialized pool and spa financing",
     features: [],
@@ -43,7 +43,7 @@ export const lenders: Lender[] = [
   },
   {
     name: "AMS Financial",
-    logo: "https://amsfsg.com/wp-content/themes/amsfsg/dist/assets/images/ams-logo.png",
+    logo: "/images/lenders/ams.png",
     website: "https://amsfsg.com",
     description: "Consumer financing for home improvements",
     features: [],
@@ -51,7 +51,7 @@ export const lenders: Lender[] = [
   },
   {
     name: "Lendkey",
-    logo: "https://www.lendkey.com/wp-content/uploads/2018/08/cropped-LK512.png",
+    logo: "/images/lenders/lendkey.png",
     website: "https://www.lendkey.com",
     description: "Credit union lending network",
     features: [],
@@ -59,7 +59,7 @@ export const lenders: Lender[] = [
   },
   {
     name: "Navy Federal Credit Union",
-    logo: "https://dtjax.com/wp-content/uploads/2025/09/KsW5x5YuUtZeeEN8JilCY_7JuGjd-kIEfDFx8KYz6dE.jpeg",
+    logo: "/images/lenders/navy.jpeg",
     website: "https://www.navyfederal.org",
     description: "Military-focused credit union with competitive rates",
     features: [],
