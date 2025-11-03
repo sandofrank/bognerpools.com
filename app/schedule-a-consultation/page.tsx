@@ -3,12 +3,12 @@ import { Metadata } from 'next';
 import { SEO_DEFAULTS, BUSINESS_INFO } from '@/lib/constants';
 
 export const metadata: Metadata = {
-  title: 'Schedule Free Consultation | In-Home Pool Design',
-  description: `Schedule a free, no-obligation in-home consultation with Bogner Pools. Get a detailed itemized bid and CAD design for your custom pool. Call ${BUSINESS_INFO.phone} or fill out our form.`,
-  keywords: ['pool consultation', 'free pool estimate', 'pool design', 'in-home consultation', 'Riverside pool builder'],
+  title: 'Free Pool Consultation Riverside | Schedule Now | Bogner Pools',
+  description: `Schedule a free, no-obligation in-home pool consultation in Riverside. Get a detailed itemized bid and CAD design for your custom pool. Call ${BUSINESS_INFO.phone} or fill out our form.`,
+  keywords: ['pool consultation', 'free pool estimate', 'pool design', 'in-home consultation', 'Riverside pool builder', 'free pool consultation Riverside'],
   openGraph: {
-    title: 'Schedule Free Consultation | Bogner Pools',
-    description: 'Get a free, no-obligation in-home consultation and detailed itemized bid for your custom pool.',
+    title: 'Free Pool Consultation Riverside | Schedule Now | Bogner Pools',
+    description: 'Schedule a free, no-obligation in-home pool consultation in Riverside. Get a detailed itemized bid and CAD design.',
     images: [
       {
         url: SEO_DEFAULTS.ogImage,
@@ -21,8 +21,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Schedule Free Consultation | Bogner Pools',
-    description: 'Get a free in-home consultation and detailed bid for your custom pool.',
+    title: 'Free Pool Consultation Riverside | Schedule Now | Bogner Pools',
+    description: 'Schedule a free, no-obligation in-home pool consultation in Riverside. Get a detailed itemized bid and CAD design.',
     images: [SEO_DEFAULTS.ogImage],
   },
 };

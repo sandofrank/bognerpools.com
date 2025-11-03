@@ -3,11 +3,11 @@ import { SEO_DEFAULTS } from '@/lib/constants';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Visit Us - Map & Directions | Bogner Pools",
-  description: "Find Bogner Pools in Riverside, CA. Get directions to our showroom and office at 5045 Van Buren Blvd.",
+  title: "Pool Builder Location Riverside | Visit Us | Bogner Pools",
+  description: "Visit Bogner Pools in Riverside, CA. Get directions to our showroom at 5045 Van Buren Blvd. See material displays, example pools, and meet our expert team.",
   openGraph: {
-    title: "Visit Us - Map & Directions | Bogner Pools",
-    description: "Find Bogner Pools in Riverside, CA. Get directions to our showroom and office at 5045 Van Buren Blvd.",
+    title: "Pool Builder Location Riverside | Visit Us | Bogner Pools",
+    description: "Visit Bogner Pools in Riverside, CA. Get directions to our showroom at 5045 Van Buren Blvd.",
     images: [
       {
         url: SEO_DEFAULTS.ogImage,
@@ -19,8 +19,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Visit Us - Map & Directions | Bogner Pools",
-    description: "Find Bogner Pools in Riverside, CA. Get directions to our showroom and office at 5045 Van Buren Blvd.",
+    title: "Pool Builder Location Riverside | Visit Us | Bogner Pools",
+    description: "Visit Bogner Pools in Riverside, CA. Get directions to our showroom at 5045 Van Buren Blvd.",
     images: [SEO_DEFAULTS.ogImage],
   },
 };

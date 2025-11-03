@@ -1,13 +1,13 @@
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 import { SEO_DEFAULTS } from '@/lib/constants';
 
 export const metadata: Metadata = {
-  title: 'Pool Financing Options | Affordable Payment Plans',
-  description: 'Flexible pool financing with competitive interest rates. Multiple trusted lending partners for secured and unsecured pool loans. Make your dream pool affordable today.',
-  keywords: ['pool financing', 'pool loans', 'swimming pool financing', 'payment plans', 'pool payment options'],
+  title: 'Pool Financing Riverside | Affordable Options | Bogner Pools',
+  description: 'Flexible pool financing options in Riverside and the Inland Empire. Secured and unsecured financing with competitive rates. Make your dream pool affordable today.',
+  keywords: ['pool financing', 'pool loans', 'pool payment options', 'Riverside pool financing', 'affordable pool financing'],
   openGraph: {
-    title: 'Pool Financing Options | Bogner Pools',
-    description: 'Flexible pool financing with competitive interest rates from multiple trusted lending partners.',
+    title: 'Pool Financing Riverside | Affordable Options | Bogner Pools',
+    description: 'Flexible pool financing options in Riverside and the Inland Empire. Secured and unsecured financing with competitive rates.',
     images: [
       {
         url: SEO_DEFAULTS.ogImage,
@@ -20,8 +20,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Pool Financing Options | Bogner Pools',
-    description: 'Flexible pool financing with competitive interest rates.',
+    title: 'Pool Financing Riverside | Affordable Options | Bogner Pools',
+    description: 'Flexible pool financing options in Riverside and the Inland Empire.',
     images: [SEO_DEFAULTS.ogImage],
   },
 };

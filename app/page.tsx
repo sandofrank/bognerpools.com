@@ -17,7 +17,7 @@ export default function Home() {
       '@type': 'WebPage',
       '@id': 'https://www.bognerpools.com/#webpage',
       url: 'https://www.bognerpools.com',
-      name: 'Bogner Pools | Custom Pool Builder Since 1959 | Riverside & Inland Empire',
+      name: 'Riverside Pool Builder | Custom Pools Since 1959 | Bogner Pools',
       description: 'Family-owned pool builder serving Riverside and the Inland Empire since 1959. Quality custom swimming pools, spas, and remodeling at affordable prices.',
       isPartOf: {
         '@id': 'https://www.bognerpools.com/#website',

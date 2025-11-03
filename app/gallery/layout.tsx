@@ -1,13 +1,13 @@
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 import { SEO_DEFAULTS } from '@/lib/constants';
 
 export const metadata: Metadata = {
-  title: 'Photo Gallery | Custom Pool Designs',
-  description: 'Browse our portfolio of custom swimming pools, spas, and water features. See real projects built by Bogner Pools throughout Riverside and the Inland Empire since 1959.',
-  keywords: ['pool gallery', 'pool photos', 'pool designs', 'custom pools', 'Riverside pools', 'pool portfolio'],
+  title: 'Pool Gallery Riverside | Custom Pool Photos | Bogner Pools',
+  description: 'Browse our gallery of custom swimming pools built in Riverside and the Inland Empire. View completed projects, construction photos, and design inspiration from 60+ years of pool building.',
+  keywords: ['pool gallery', 'pool photos', 'pool designs', 'Riverside pools', 'custom pool examples', 'pool construction photos'],
   openGraph: {
-    title: 'Photo Gallery | Bogner Pools',
-    description: 'Browse our portfolio of custom swimming pools built throughout Riverside and the Inland Empire.',
+    title: 'Pool Gallery Riverside | Custom Pool Photos | Bogner Pools',
+    description: 'Browse our gallery of custom swimming pools built in Riverside and the Inland Empire.',
     images: [
       {
         url: SEO_DEFAULTS.ogImage,
@@ -20,8 +20,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Photo Gallery | Bogner Pools',
-    description: 'Browse our portfolio of custom swimming pools.',
+    title: 'Pool Gallery Riverside | Custom Pool Photos | Bogner Pools',
+    description: 'Browse our gallery of custom swimming pools built in Riverside and the Inland Empire.',
     images: [SEO_DEFAULTS.ogImage],
   },
 };
