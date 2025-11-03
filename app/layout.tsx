@@ -97,13 +97,24 @@ const localBusinessSchema = {
   name: BUSINESS_INFO.name,
   legalName: BUSINESS_INFO.legalName,
   url: BUSINESS_INFO.urls.website,
-  logo: '/images/logo.png',
+  logo: `${BUSINESS_INFO.urls.website}/images/logo.png`,
   image: SEO_DEFAULTS.ogImage,
   description: SEO_DEFAULTS.description,
   telephone: BUSINESS_INFO.phone,
   email: BUSINESS_INFO.email,
   priceRange: '$$',
   foundingDate: BUSINESS_INFO.foundedYear.toString(),
+  hasCredential: {
+    '@type': 'EducationalOccupationalCredential',
+    credentialCategory: 'license',
+    name: 'California Contractors State License',
+    recognizedBy: {
+      '@type': 'Organization',
+      name: 'California Contractors State License Board',
+    },
+    identifier: BUSINESS_INFO.licenseNumber,
+    url: BUSINESS_INFO.urls.cslb,
+  },
   address: {
     '@type': 'PostalAddress',
     streetAddress: BUSINESS_INFO.address.street,
@@ -181,6 +192,27 @@ const localBusinessSchema = {
   },
 };
 
+// WebSite Schema
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': `${BUSINESS_INFO.urls.website}/#website`,
+  url: BUSINESS_INFO.urls.website,
+  name: BUSINESS_INFO.name,
+  description: SEO_DEFAULTS.description,
+  publisher: {
+    '@id': `${BUSINESS_INFO.urls.website}/#organization`,
+  },
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: {
+      '@type': 'EntryPoint',
+      urlTemplate: `${BUSINESS_INFO.urls.website}/?s={search_term_string}`,
+    },
+    'query-input': 'required name=search_term_string',
+  },
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -193,6 +225,12 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(localBusinessSchema),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteSchema),
           }}
         />
       </head>

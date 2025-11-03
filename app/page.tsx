@@ -2,11 +2,42 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import { useEffect } from 'react';
 
 // Note: metadata export doesn't work in 'use client' components
 // Metadata is handled by root layout.tsx for this page
 
 export default function Home() {
+  // Add WebPage schema for homepage
+  useEffect(() => {
+    const schemaScript = document.createElement('script');
+    schemaScript.type = 'application/ld+json';
+    schemaScript.text = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      '@id': 'https://www.bognerpools.com/#webpage',
+      url: 'https://www.bognerpools.com',
+      name: 'Bogner Pools | Custom Pool Builder Since 1959 | Riverside & Inland Empire',
+      description: 'Family-owned pool builder serving Riverside and the Inland Empire since 1959. Quality custom swimming pools, spas, and remodeling at affordable prices.',
+      isPartOf: {
+        '@id': 'https://www.bognerpools.com/#website',
+      },
+      about: {
+        '@id': 'https://www.bognerpools.com/#organization',
+      },
+      primaryImageOfPage: {
+        '@type': 'ImageObject',
+        url: 'https://www.bognerpools.com/images/hero/hero.jpg',
+      },
+    });
+    document.head.appendChild(schemaScript);
+
+    return () => {
+      if (schemaScript.parentNode) {
+        schemaScript.parentNode.removeChild(schemaScript);
+      }
+    };
+  }, []);
   return (
     <div>
       {/* Hero Section with Background Image */}
