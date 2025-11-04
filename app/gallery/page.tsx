@@ -261,6 +261,7 @@ export default function Gallery() {
   const [currentReel, setCurrentReel] = useState(0);
   const [videosLoaded, setVideosLoaded] = useState(false);
   const [loadedIframes, setLoadedIframes] = useState<Record<number, boolean>>({});
+  const [reelsPerView, setReelsPerView] = useState(4);
   const instagramSectionRef = useRef<HTMLElement>(null);
 
   const reels = [
@@ -280,7 +281,6 @@ export default function Gallery() {
     'https://www.instagram.com/reel/DQXz6RugQRx/embed',
   ];
 
-  const reelsPerView = 4;
   const maxScroll = reels.length - reelsPerView;
 
   const nextReel = () => {
@@ -290,6 +290,36 @@ export default function Gallery() {
   const prevReel = () => {
     setCurrentReel((prev) => Math.max(prev - 1, 0));
   };
+
+  // Handle responsive reels per view
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 640) {
+        setReelsPerView(1); // Mobile: 1 card
+      } else if (window.innerWidth < 1024) {
+        setReelsPerView(2); // Tablet: 2 cards
+      } else {
+        setReelsPerView(4); // Desktop: 4 cards
+      }
+    };
+
+    // Set initial value
+    handleResize();
+
+    // Add event listener
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Reset currentReel when reelsPerView changes to avoid out-of-bounds
+  useEffect(() => {
+    const newMaxScroll = reels.length - reelsPerView;
+    if (currentReel > newMaxScroll) {
+      setCurrentReel(Math.max(0, newMaxScroll));
+    }
+  }, [reelsPerView, currentReel, reels.length]);
 
   // Automatically load videos when Instagram section comes into view
   useEffect(() => {
@@ -355,11 +385,11 @@ export default function Gallery() {
 
           <div className="max-w-6xl mx-auto">
             {/* Carousel Container */}
-            <div className="relative px-12">
+            <div className="relative px-8 sm:px-10 lg:px-12">
               {/* Scrollable Container */}
               <div className="overflow-hidden">
                 <div
-                  className="flex gap-3 transition-transform duration-500 ease-in-out"
+                  className="flex gap-2 sm:gap-3 transition-transform duration-500 ease-in-out"
                   style={{
                     transform: `translateX(-${currentReel * (100 / reelsPerView + 0.75)}%)`
                   }}
@@ -372,10 +402,9 @@ export default function Gallery() {
                     return (
                       <div
                         key={index}
-                        className="flex-shrink-0 w-1/4"
-                        style={{ minWidth: 'calc(25% - 9px)' }}
+                        className="flex-shrink-0 w-full sm:w-1/2 lg:w-1/4"
                       >
-                        <div className="bg-white rounded-lg overflow-hidden shadow-md border border-gray-200" style={{ height: '350px', overflow: 'hidden', position: 'relative' }}>
+                        <div className="bg-white rounded-lg overflow-hidden shadow-md border border-gray-200 h-[400px] sm:h-[350px]" style={{ overflow: 'hidden', position: 'relative' }}>
                           {shouldRenderIframe && (
                             <iframe
                               src={reelUrl}
