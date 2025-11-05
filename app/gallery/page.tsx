@@ -395,6 +395,36 @@ export default function Gallery() {
     }
   }, [lightboxImage, nextImage, prevImage]);
 
+  // Preload adjacent images for faster navigation
+  useEffect(() => {
+    if (lightboxImage && lightboxImages.length > 0) {
+      const imagesToPreload: string[] = [];
+
+      // Preload next image
+      if (lightboxIndex < lightboxImages.length - 1) {
+        imagesToPreload.push(lightboxImages[lightboxIndex + 1]);
+      }
+
+      // Preload previous image
+      if (lightboxIndex > 0) {
+        imagesToPreload.push(lightboxImages[lightboxIndex - 1]);
+      }
+
+      // Preload 2 images ahead and behind for smoother experience
+      if (lightboxIndex < lightboxImages.length - 2) {
+        imagesToPreload.push(lightboxImages[lightboxIndex + 2]);
+      }
+      if (lightboxIndex > 1) {
+        imagesToPreload.push(lightboxImages[lightboxIndex - 2]);
+      }
+
+      imagesToPreload.forEach(src => {
+        const img = document.createElement('img');
+        img.src = src;
+      });
+    }
+  }, [lightboxImage, lightboxImages, lightboxIndex]);
+
   return (
     <div>
       <PageHeader
