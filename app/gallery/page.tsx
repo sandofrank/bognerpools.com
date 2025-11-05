@@ -265,6 +265,7 @@ export default function Gallery() {
   const [loadedIframes, setLoadedIframes] = useState<Record<number, boolean>>({});
   const [reelsPerView, setReelsPerView] = useState(4);
   const instagramSectionRef = useRef<HTMLElement>(null);
+  const thumbnailRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
   const reels = [
     'https://www.instagram.com/reel/C-achO3JH1T/embed',
@@ -298,6 +299,11 @@ export default function Gallery() {
     setLightboxImages(imageCollection);
     setLightboxIndex(index);
     setLightboxImage(imageUrl);
+  };
+
+  const goToImage = (index: number) => {
+    setLightboxIndex(index);
+    setLightboxImage(lightboxImages[index]);
   };
 
   const nextImage = useCallback(() => {
@@ -405,6 +411,17 @@ export default function Gallery() {
       });
     }
   }, [lightboxImage, lightboxImages]);
+
+  // Auto-scroll thumbnail carousel to active image
+  useEffect(() => {
+    if (lightboxImage && thumbnailRefs.current[lightboxIndex]) {
+      thumbnailRefs.current[lightboxIndex]?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+        inline: 'center'
+      });
+    }
+  }, [lightboxIndex, lightboxImage]);
 
   return (
     <div>
@@ -711,7 +728,7 @@ export default function Gallery() {
           )}
 
           {/* Image container */}
-          <div className="relative w-full h-full flex items-center justify-center p-16">
+          <div className="relative w-full h-full flex items-center justify-center px-16 pt-16 pb-48">
             <img
               key={lightboxImage}
               src={lightboxImage}
@@ -731,13 +748,44 @@ export default function Gallery() {
             ))}
           </div>
 
-          {/* Image counter and instructions */}
-          <div className="absolute bottom-4 text-white text-sm text-center">
-            <div className="mb-2 font-semibold">
-              {lightboxIndex + 1} / {lightboxImages.length}
-            </div>
-            <div>
-              Use arrow keys to navigate • Click outside or press ESC to close
+          {/* Thumbnail Carousel */}
+          <div className="absolute bottom-0 left-0 right-0 bg-black/60 backdrop-blur-sm p-4">
+            <div className="max-w-6xl mx-auto">
+              <div className="flex items-center justify-center gap-2 mb-2">
+                <span className="text-white text-sm font-semibold">
+                  {lightboxIndex + 1} / {lightboxImages.length}
+                </span>
+              </div>
+              <div className="overflow-x-auto scrollbar-hide">
+                <div className="flex gap-2 justify-start min-w-max px-4">
+                  {lightboxImages.map((src, idx) => (
+                    <button
+                      key={src}
+                      ref={(el) => {
+                        thumbnailRefs.current[idx] = el;
+                      }}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        goToImage(idx);
+                      }}
+                      className={`flex-shrink-0 w-20 h-20 rounded overflow-hidden border-2 transition-all ${
+                        idx === lightboxIndex
+                          ? 'border-blue-500 scale-110 ring-2 ring-blue-400'
+                          : 'border-white/30 hover:border-white/60'
+                      }`}
+                    >
+                      <img
+                        src={src}
+                        alt={`Thumbnail ${idx + 1}`}
+                        className="w-full h-full object-cover"
+                      />
+                    </button>
+                  ))}
+                </div>
+              </div>
+              <div className="text-center text-white text-xs mt-2 opacity-75">
+                Click thumbnails or use arrow keys • Press ESC to close
+              </div>
             </div>
           </div>
         </div>
