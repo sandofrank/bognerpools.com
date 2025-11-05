@@ -87,6 +87,17 @@ export const metadata: Metadata = {
     // Add Google Search Console verification tag here when available
     // google: 'your-verification-code',
   },
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: '48x48', type: 'image/x-icon' },
+      { url: '/icon.png', sizes: '512x512', type: 'image/png' },
+    ],
+    apple: {
+      url: '/apple-icon.png',
+      sizes: '180x180',
+      type: 'image/png',
+    },
+  },
 };
 
 // LocalBusiness Schema
