@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import PageHeader from '@/components/PageHeader';
 
 const featuredProjects = [
@@ -258,6 +258,8 @@ const galleryImages = [
 export default function Gallery() {
   const [expandedProject, setExpandedProject] = useState<number | null>(null);
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
+  const [lightboxImages, setLightboxImages] = useState<string[]>([]);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
   const [currentReel, setCurrentReel] = useState(0);
   const [videosLoaded, setVideosLoaded] = useState(false);
   const [loadedIframes, setLoadedIframes] = useState<Record<number, boolean>>({});
@@ -290,6 +292,29 @@ export default function Gallery() {
   const prevReel = () => {
     setCurrentReel((prev) => Math.max(prev - 1, 0));
   };
+
+  const openLightbox = (imageUrl: string, imageCollection: string[]) => {
+    const index = imageCollection.indexOf(imageUrl);
+    setLightboxImages(imageCollection);
+    setLightboxIndex(index);
+    setLightboxImage(imageUrl);
+  };
+
+  const nextImage = useCallback(() => {
+    if (lightboxIndex < lightboxImages.length - 1) {
+      const newIndex = lightboxIndex + 1;
+      setLightboxIndex(newIndex);
+      setLightboxImage(lightboxImages[newIndex]);
+    }
+  }, [lightboxIndex, lightboxImages]);
+
+  const prevImage = useCallback(() => {
+    if (lightboxIndex > 0) {
+      const newIndex = lightboxIndex - 1;
+      setLightboxIndex(newIndex);
+      setLightboxImage(lightboxImages[newIndex]);
+    }
+  }, [lightboxIndex, lightboxImages]);
 
   // Handle responsive reels per view
   useEffect(() => {
@@ -349,20 +374,26 @@ export default function Gallery() {
     };
   }, [videosLoaded]);
 
-  // Close lightbox on ESC key
+  // Handle lightbox keyboard navigation
   useEffect(() => {
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setLightboxImage(null);
+    const handleKeydown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setLightboxImage(null);
+      } else if (e.key === 'ArrowRight') {
+        nextImage();
+      } else if (e.key === 'ArrowLeft') {
+        prevImage();
+      }
     };
     if (lightboxImage) {
-      document.addEventListener('keydown', handleEscape);
+      document.addEventListener('keydown', handleKeydown);
       document.body.style.overflow = 'hidden';
       return () => {
-        document.removeEventListener('keydown', handleEscape);
+        document.removeEventListener('keydown', handleKeydown);
         document.body.style.overflow = 'unset';
       };
     }
-  }, [lightboxImage]);
+  }, [lightboxImage, nextImage, prevImage]);
 
   return (
     <div>
@@ -547,10 +578,11 @@ export default function Gallery() {
                     {project.allImages.map((imageUrl, imgIndex) => (
                       <div
                         key={imgIndex}
-                        className="relative aspect-square overflow-hidden rounded shadow-sm cursor-pointer"
+                        className="relative overflow-hidden rounded shadow-sm cursor-pointer"
+                        style={{ paddingBottom: '100%' }}
                         onClick={(e) => {
                           e.stopPropagation();
-                          setLightboxImage(imageUrl);
+                          openLightbox(imageUrl, project.allImages);
                         }}
                       >
                         <Image
@@ -580,8 +612,9 @@ export default function Gallery() {
           {galleryImages.map((imageUrl, index) => (
             <div
               key={index}
-              className="relative aspect-[4/3] overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 group cursor-pointer"
-              onClick={() => setLightboxImage(imageUrl)}
+              className="relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 group cursor-pointer"
+              style={{ paddingBottom: '75%' }}
+              onClick={() => openLightbox(imageUrl, galleryImages)}
             >
               <Image
                 src={imageUrl}
@@ -634,6 +667,38 @@ export default function Gallery() {
             ×
           </button>
 
+          {/* Previous button */}
+          {lightboxIndex > 0 && (
+            <button
+              className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white rounded-full p-3 transition z-10 backdrop-blur-sm"
+              onClick={(e) => {
+                e.stopPropagation();
+                prevImage();
+              }}
+              aria-label="Previous image"
+            >
+              <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+          )}
+
+          {/* Next button */}
+          {lightboxIndex < lightboxImages.length - 1 && (
+            <button
+              className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white rounded-full p-3 transition z-10 backdrop-blur-sm"
+              onClick={(e) => {
+                e.stopPropagation();
+                nextImage();
+              }}
+              aria-label="Next image"
+            >
+              <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          )}
+
           {/* Image container */}
           <div className="relative w-full h-full flex items-center justify-center">
             <Image
@@ -647,9 +712,14 @@ export default function Gallery() {
             />
           </div>
 
-          {/* Instructions */}
+          {/* Image counter and instructions */}
           <div className="absolute bottom-4 text-white text-sm text-center">
-            Click outside image or press ESC to close
+            <div className="mb-2 font-semibold">
+              {lightboxIndex + 1} / {lightboxImages.length}
+            </div>
+            <div>
+              Use arrow keys to navigate • Click outside or press ESC to close
+            </div>
           </div>
         </div>
       )}
