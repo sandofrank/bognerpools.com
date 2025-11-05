@@ -11,13 +11,93 @@ const nextConfig = {
   poweredByHeader: false,
   async redirects() {
     return [
+      // Blog redirects
       {
         source: '/blog/:path*',
         destination: '/',
         permanent: true,
       },
+      // Support redirects
       {
         source: '/support/:path*',
+        destination: '/',
+        permanent: true,
+      },
+      // Home page variations
+      {
+        source: '/home',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/index',
+        destination: '/',
+        permanent: true,
+      },
+      // Archived pool instruction pages -> redirect to homepage or gallery
+      {
+        source: '/spa-instructions',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/pool-shopping-tips',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/troubleshooting-checklist',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/pool-start-up',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/skimmer-settings',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/dual-time-clock-instructions',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/servicing-check-valve',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/filter-cleaning-instructions',
+        destination: '/',
+        permanent: true,
+      },
+      // Archived info pages
+      {
+        source: '/go-green',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/useful-info-about-your-pool',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/help',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/products',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/_downloads/:path*',
         destination: '/',
         permanent: true,
       },
