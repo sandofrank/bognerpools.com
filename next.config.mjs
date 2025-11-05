@@ -11,7 +11,12 @@ const nextConfig = {
   poweredByHeader: false,
   async redirects() {
     return [
-      // Blog redirects
+      // Blog redirects (including query parameters)
+      {
+        source: '/blog',
+        destination: '/',
+        permanent: true,
+      },
       {
         source: '/blog/:path*',
         destination: '/',
