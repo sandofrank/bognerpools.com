@@ -395,35 +395,16 @@ export default function Gallery() {
     }
   }, [lightboxImage, nextImage, prevImage]);
 
-  // Preload adjacent images for faster navigation
+  // Aggressively preload all images in the gallery when lightbox opens
   useEffect(() => {
     if (lightboxImage && lightboxImages.length > 0) {
-      const imagesToPreload: string[] = [];
-
-      // Preload next image
-      if (lightboxIndex < lightboxImages.length - 1) {
-        imagesToPreload.push(lightboxImages[lightboxIndex + 1]);
-      }
-
-      // Preload previous image
-      if (lightboxIndex > 0) {
-        imagesToPreload.push(lightboxImages[lightboxIndex - 1]);
-      }
-
-      // Preload 2 images ahead and behind for smoother experience
-      if (lightboxIndex < lightboxImages.length - 2) {
-        imagesToPreload.push(lightboxImages[lightboxIndex + 2]);
-      }
-      if (lightboxIndex > 1) {
-        imagesToPreload.push(lightboxImages[lightboxIndex - 2]);
-      }
-
-      imagesToPreload.forEach(src => {
+      // Preload ALL images for instant navigation
+      lightboxImages.forEach(src => {
         const img = document.createElement('img');
         img.src = src;
       });
     }
-  }, [lightboxImage, lightboxImages, lightboxIndex]);
+  }, [lightboxImage, lightboxImages]);
 
   return (
     <div>
@@ -730,16 +711,24 @@ export default function Gallery() {
           )}
 
           {/* Image container */}
-          <div className="relative w-full h-full flex items-center justify-center">
-            <Image
+          <div className="relative w-full h-full flex items-center justify-center p-16">
+            <img
+              key={lightboxImage}
               src={lightboxImage}
               alt="Full size pool photo"
-              fill
-              sizes="100vw"
-              className="object-contain"
+              className="max-w-full max-h-full object-contain transition-opacity duration-200"
               onClick={(e) => e.stopPropagation()}
-              quality={100}
+              style={{ opacity: 1 }}
             />
+          </div>
+
+          {/* Hidden preload images for instant navigation */}
+          <div className="hidden">
+            {lightboxImages.map((src, idx) => (
+              idx !== lightboxIndex && (
+                <img key={src} src={src} alt="" />
+              )
+            ))}
           </div>
 
           {/* Image counter and instructions */}
